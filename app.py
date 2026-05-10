@@ -28,10 +28,13 @@ def patch():
     """
     data = requests.get("https://jsonplaceholder.typicode.com/todos/")
     # BEGIN THE ASSIGNMENT FROM HERE
-
-
-
-    return data.json()
+    todos = data.json()
+    for todo in todos:
+        print(f"Original userId type: {type(todo['userId'])}")
+        todo['userId'] = str(todo['userId'])
+        print(f"Converted userId type: {type(todo['userId'])}")
+    
+    return todos
 
 
 if __name__ == "__main__":
