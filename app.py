@@ -22,7 +22,7 @@ def patch():
     """
     BEGIN THE PATCHES IN THIS FUNCTION
     PRINT THE DATA TYPES OF ALL THE ATTRIBUTES
-    CHANGE THE TYPE OF USER-ID TO INTEGER FROM STRING
+    CHANGE THE TYPE OF USER-ID TO FLOAT FROM INTEGER
     AND RETURN THE NEW JSON AS RESPONSE
     :return:
     """
@@ -31,7 +31,7 @@ def patch():
     todos = data.json()
     for todo in todos:
         print(f"Original userId type: {type(todo['userId'])}")
-        todo['userId'] = int(todo['userId'])
+        todo['userId'] = float(todo['userId'])
         print(f"Converted userId type: {type(todo['userId'])}")
 
     
@@ -40,4 +40,3 @@ def patch():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
